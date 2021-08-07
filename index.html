@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <!-- add file -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+
+<body>
+
+    <input class="form-control" id="datepicker" name="datepicker" type="text" placeholder="Select Date">
+
+
+    <script src="//code.jquery.com/jquery-latest.js"></script>
+    <!-- add file -->
+    <script src="min.js"></script>
+
+    <script>
+        $(window).on('load', function () {
+            var msg = ["2021-08-07", "2021-08-11"];
+            $('#datepicker').datepicker({
+                beforeShowDay: function (date) {
+                    var day = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                    return [msg.indexOf(day) == -1]
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
